@@ -165,7 +165,7 @@ header nav ul li a {
 
 header nav ul li a:hover {
   color: var(--clr-main);
-  text-shadow: var(--text-shadow-dark);
+  text-shadow: var(--text-shadow-light);
   font-size: 1.2rem;
   font-weight: 900;
 }
