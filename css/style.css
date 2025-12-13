@@ -253,6 +253,7 @@ header nav ul li a:hover::after {
 }
 
 .hero .overlay .content {
+  padding: 1rem 0;
   padding-left: calc(50vw - 620px);
 }
 
@@ -413,5 +414,9 @@ header nav ul li a:hover::after {
 
   .hero-btn a {
     animation: fadeInUp 0.6s ease-out 1.2s both;
+  }
+
+  .hero-btn a:last-child {
+    animation: fadeInDown 0.6s ease-out 1.8s both;
   }
 }
