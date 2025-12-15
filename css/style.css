@@ -5,6 +5,7 @@
 }
 
 :root {
+  color-scheme: light dark;
   --clr-main: #830000;
   --clr-dark: #1a1a1a;
   --clr-white: #f0f0f0;
