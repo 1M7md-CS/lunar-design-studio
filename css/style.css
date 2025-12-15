@@ -270,7 +270,6 @@ header nav ul li a:hover::after {
 
 .theme-toggle-label .fa-moon {
   opacity: 1;
-  transform: rotate(220deg);
 }
 
 .theme-toggle-label .fa-sun {
@@ -278,10 +277,6 @@ header nav ul li a:hover::after {
 }
 
 .theme-toggle-label:hover i {
-  transform: rotate(0deg);
-}
-
-.theme-toggle-label:hover .fa-sun {
   transform: rotate(220deg);
 }
 
