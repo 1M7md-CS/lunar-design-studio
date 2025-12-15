@@ -290,7 +290,7 @@ header nav ul li a:hover::after {
   background-position: center;
   background-size: cover;
   height: 100vh;
-  transition: background-image 1s;
+  transition: background-image 0.4s;
 }
 
 .hero .overlay {
@@ -314,7 +314,7 @@ header nav ul li a:hover::after {
   color: var(--clr-header);
   font-weight: 900;
   font-size: clamp(1.5rem, 5vw, 1.7rem);
-  transition: color 1s;
+  transition: color 0.4s;
   text-shadow: var(--text-shadow);
 }
 
