@@ -9,6 +9,8 @@
   --clr-dark: #1a1a1a;
   --clr-white: #f0f0f0;
   --clr-accent: #f5deb3;
+  --clr-section: #151922;
+  --clr-header: #830000;
 
   --hero-image: url(../images/hero-dark.jpg);
 
@@ -17,12 +19,67 @@
 }
 
 #theme-toggle:checked ~ * {
-  --clr-accent: var(--clr-main);
+  --clr-section: #233038;
+  --clr-header: #f5deb3;
 
   --hero-image: url(../images/hero-light.jpg);
 
   --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
   --box-shadow: 0 4px 20px rgba(0, 0, 0, 1.5);
+}
+
+.section-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  position: relative;
+  color: var(--clr-header);
+  font-weight: 900;
+  letter-spacing: 0.05rem;
+  transition: color 0.3s;
+  text-shadow: var(--text-shadow);
+}
+
+.section-header h2::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 4px;
+  background-color: var(--clr-main);
+}
+
+.section-header h2::after {
+  content: "";
+  position: absolute;
+  bottom: -19px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background-color: var(--clr-section);
+  border-radius: 50%;
+  border: 3px solid var(--clr-main);
+}
+
+.section-header p {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: var(--clr-accent);
+  font-size: 1.15rem;
+  max-width: 50%;
+  line-height: 1.7;
+  font-weight: 500;
+  transition: color 0.3s;
+  padding-top: 2rem;
 }
 
 @keyframes fadeInUp {
@@ -71,11 +128,13 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 .container {
@@ -210,6 +269,7 @@ header nav ul li a:hover::after {
 
 .theme-toggle-label .fa-moon {
   opacity: 1;
+  transform: rotate(220deg);
 }
 
 .theme-toggle-label .fa-sun {
@@ -217,6 +277,10 @@ header nav ul li a:hover::after {
 }
 
 .theme-toggle-label:hover i {
+  transform: rotate(0deg);
+}
+
+.theme-toggle-label:hover .fa-sun {
   transform: rotate(220deg);
 }
 
@@ -239,7 +303,7 @@ header nav ul li a:hover::after {
 .hero .overlay {
   position: absolute;
   top: 30%;
-  min-width: 60%;
+  min-width: 55%;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
   animation: fadeInLeft 0.8s ease-out 0.4s both;
 }
@@ -254,7 +318,7 @@ header nav ul li a:hover::after {
 }
 
 .hero .overlay .content .text h1 {
-  color: var(--clr-accent);
+  color: var(--clr-header);
   font-weight: 900;
   font-size: clamp(1.5rem, 5vw, 1.7rem);
   transition: color 0.3s;
@@ -301,6 +365,83 @@ header nav ul li a:hover::after {
   animation: fadeInUp 0.6s ease-out 1.4s both;
 }
 
+.services {
+  padding: 5rem 0 6rem 0;
+  background-color: var(--clr-section);
+  border-top: 1px solid hsla(0, 100%, 26%, 0.4);
+}
+
+.services-content {
+  padding-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgba(26, 26, 26, 0.5);
+  color: white;
+  padding: 2.5rem 2rem;
+  border-radius: 8px;
+  border: 1px solid hsl(0, 100%, 26%, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: var(--box-shadow);
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--clr-main);
+}
+
+.service-icon {
+  font-size: 2.2rem;
+  color: #ffffff;
+  background-color: var(--clr-main);
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(131, 0, 0, 0.3);
+  transition: transform 0.4s ease-out;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.2) rotateY(360deg);
+}
+
+.service-card h3 {
+  padding: 0.5rem 0 1rem 0;
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: var(--clr-header);
+  transition: color 0.3s;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: var(--text-shadow);
+}
+
+.service-card p {
+  color: var(--clr-accent);
+  line-height: 1.7;
+  font-size: 1rem;
+  transition: color 0.3s;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
 @media (max-width: 768px) {
 
   header nav ul {
@@ -343,7 +484,6 @@ header nav ul li a:hover::after {
   header nav ul li:nth-child(6) {
     --i: 6;
   }
-
 
   nav label {
     cursor: pointer;
