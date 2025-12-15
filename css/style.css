@@ -13,7 +13,7 @@
   --clr-section: #151922;
   --clr-header: #830000;
 
-  --hero-image: url(../images/hero-dark.jpg);
+  --hero-image: url(../images/hero-dark.webp);
 
   --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -23,7 +23,7 @@
   --clr-section: #233038;
   --clr-header: #f5deb3;
 
-  --hero-image: url(../images/hero-light.jpg);
+  --hero-image: url(../images/hero-light.webp);
 
   --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
   --box-shadow: 0 4px 20px rgba(0, 0, 0, 1.5);
