@@ -6,23 +6,29 @@
 
 :root {
   color-scheme: light dark;
-  --clr-main: #830000;
-  --clr-dark: #1a1a1a;
-  --clr-white: #f0f0f0;
-  --clr-accent: #f5deb3;
-  --clr-section: #151922;
-  --clr-header: #830000;
 
-  --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --clr-main: #6b0000;
+  --clr-header: #6b0000;
+
+  --clr-dark: #0a0a0a;
+  --clr-white: #ffffff;
+  --clr-section: #151922;
+
+  --clr-accent: #f5deb3;
+
+  --clr-card-bg: hsl(0, 0%, 8%, 0.9);
+
+  --text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 2);
 }
 
 #theme-toggle:checked ~ * {
-  --clr-section: #233038;
-  --clr-header: #f5deb3;
+  --clr-section: #fafafa;
+  --clr-card-bg: rgba(255, 255, 255, 0.9);
+  --clr-accent: #404040;
 
-  --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-  --box-shadow: 0 4px 20px rgba(0, 0, 0, 1.5);
+  --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --box-shadow: 0 10px 40px rgba(107, 0, 0, 0.2);
 }
 
 .section-header {
@@ -31,16 +37,16 @@
   align-items: center;
   text-align: center;
   flex-direction: column;
-  margin-bottom: 1rem;
+  padding: 5rem 0;
 }
 
 .section-header h2 {
-  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-size: clamp(2.5rem, 6vw, 3rem);
   position: relative;
-  color: var(--clr-header);
+  color: var(--clr-main);
   font-weight: 900;
-  letter-spacing: 0.05rem;
   text-shadow: var(--text-shadow);
+  cursor: default;
 }
 
 .section-header h2::before {
@@ -75,9 +81,9 @@
 }
 
 .section-header p {
-  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-size: clamp(1rem, 2vw, 1.2rem);
   color: var(--clr-accent);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   max-width: 50%;
   line-height: 1.7;
   font-weight: 500;
@@ -379,16 +385,17 @@ header nav ul li a:hover::after {
 }
 
 .services {
-  padding: 5rem 0 6rem 0;
   background-color: var(--clr-section);
   border-top: 1px solid hsla(0, 100%, 26%, 0.4);
+  padding-bottom: 5rem;
 }
 
 .services-content {
-  padding-top: 5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  align-items: stretch;
+  margin: 0 2rem;
 }
 
 .service-card {
@@ -396,15 +403,15 @@ header nav ul li a:hover::after {
   flex-direction: column;
   text-align: center;
   align-items: center;
-  justify-content: flex-start;
-  background-color: rgba(26, 26, 26, 0.5);
+  background-color: var(--clr-card-bg);
   color: white;
-  padding: 2.5rem 2rem;
-  border-radius: 8px;
-  border: 1px solid hsl(0, 100%, 26%, 0.3);
+  padding: 3.5rem 2.5rem;
+  border-radius: 20px;
+  border: 2px solid hsl(0, 100%, 26%, 0.3);
   transition: all 0.3s ease;
   box-shadow: var(--box-shadow);
   height: 100%;
+  min-height: 300px;
 }
 
 .service-card:hover {
@@ -413,19 +420,19 @@ header nav ul li a:hover::after {
 }
 
 .service-card-icon {
-  font-size: 2.2rem;
-  color: #ffffff;
-  background-color: var(--clr-main);
-  border-radius: 50%;
-  width: 90px;
-  height: 90px;
+  font-size: 2.8rem;
+  color: var(--clr-white);
+  background: linear-gradient(to bottom, #6b0000 0%, #4a0000 100%);
+  border-radius: 24px;
+  width: 110px;
+  height: 110px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 15px rgba(131, 0, 0, 0.3);
-  transition: transform 0.4s ease-out;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 10px 30px rgba(107, 0, 0, 0.5);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .service-card:hover .service-card-icon {
@@ -433,20 +440,21 @@ header nav ul li a:hover::after {
 }
 
 .service-card h3 {
-  padding: 0.5rem 0 1rem 0;
-  font-weight: 900;
-  font-size: 1.4rem;
+  padding-bottom: 1.5rem;
+  font-weight: 800;
+  font-size: 1.6rem;
   color: var(--clr-header);
-  min-height: 60px;
+  min-height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-shadow: var(--text-shadow);
+  letter-spacing: -1px;
 }
 
 .service-card p {
   color: var(--clr-accent);
-  line-height: 1.7;
+  line-height: 1.9;
   font-size: 1rem;
   flex: 1;
   display: flex;
