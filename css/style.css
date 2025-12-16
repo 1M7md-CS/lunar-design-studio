@@ -49,22 +49,29 @@
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 180px;
-  height: 4px;
-  background-color: var(--clr-main);
+  width: 75%;
+  height: 5px;
+  background: linear-gradient(
+    to left,
+    transparent,
+    var(--clr-main),
+    transparent
+  );
 }
 
 .section-header h2::after {
   content: "";
   position: absolute;
-  bottom: -19px;
+  bottom: -15px;
   left: 50%;
-  transform: translateX(-50%);
-  width: 16px;
-  height: 16px;
+  width: 5px;
+  height: 5px;
   background-color: var(--clr-section);
   border-radius: 50%;
-  border: 3px solid var(--clr-main);
+  border: 5px solid var(--clr-main);
+  box-shadow: 0 0 0 5px var(--clr-section), 0 0 0 7px var(--clr-main);
+  background-color: var(--clr-main);
+  transform: translateX(-50%);
 }
 
 .section-header p {
