@@ -218,13 +218,14 @@ header nav ul li a {
   color: var(--clr-white);
   font-weight: 500;
   position: relative;
-  transition: all 0.3s;
   text-shadow: var(--text-shadow);
+  display: inline-block;
+  transition: all 0.3s;
 }
 
 header nav ul li a:hover {
   color: var(--clr-main);
-  font-size: 1.2rem;
+  transform: scale(1.2);
   font-weight: 900;
 }
 
@@ -283,7 +284,7 @@ header nav ul li a:hover::after {
 }
 
 .theme-toggle-label:hover i {
-  transform: rotate(220deg);
+  transform: rotate(220deg) scale(1.2);
 }
 
 #theme-toggle:checked ~ * .theme-toggle-label .fa-moon {
@@ -360,6 +361,7 @@ header nav ul li a:hover::after {
 .hero .overlay .content .text p a {
   color: var(--clr-white);
   font-weight: 700;
+  transition: color 0.3s;
 }
 
 .hero .overlay .content .text p a:hover {
