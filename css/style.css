@@ -617,6 +617,7 @@ header nav ul li a:hover::after {
   border: 2px solid hsla(0, 100%, 26%, 0.25);
   text-align: center;
   transition: all 0.35s;
+  margin: 0 1rem;
 }
 
 .about-card:hover {
