@@ -530,6 +530,7 @@ header nav ul li a:hover::after {
   text-shadow: var(--text-shadow);
   position: relative;
   padding-bottom: 1.5rem;
+  cursor: default;
 }
 
 .benefits-content h2::before {
