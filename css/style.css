@@ -8,14 +8,10 @@
   color-scheme: light dark;
 
   --clr-main: #6b0000;
-  --clr-header: #6b0000;
-
   --clr-dark: #0a0a0a;
   --clr-white: #ffffff;
   --clr-section: #151922;
-
   --clr-accent: #f5deb3;
-
   --clr-card-bg: hsl(0, 0%, 8%, 0.9);
 
   --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -346,7 +342,7 @@ header nav ul li a:hover::after {
 }
 
 .hero .overlay .content .text h1 {
-  color: var(--clr-header);
+  color: var(--clr-main);
   font-weight: 900;
   font-size: clamp(1.5rem, 5vw, 1.7rem);
   transition: color 0.4s;
@@ -445,7 +441,7 @@ header nav ul li a:hover::after {
   padding-bottom: 1.5rem;
   font-weight: 800;
   font-size: 1.6rem;
-  color: var(--clr-header);
+  color: var(--clr-main);
   min-height: 70px;
   display: flex;
   align-items: center;
