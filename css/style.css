@@ -726,6 +726,10 @@ header nav ul li a:hover::after {
     box-shadow: 0 10px 20px rgba(107, 0, 0, 0.3);
   }
 
+  .benefits-list li i {
+    box-shadow: 0 2px 8px rgba(107, 0, 0, 0.4);
+  }
+
   .benefits-content {
     text-align: center;
     min-width: 70%;
