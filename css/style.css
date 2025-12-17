@@ -723,6 +723,7 @@ header nav ul li a:hover::after {
     min-width: 50%;
     min-height: 50%;
     margin: clamp(-3rem, -10vw, -5rem) 0;
+    box-shadow: 0 10px 20px rgba(107, 0, 0, 0.3);
   }
 
   .benefits-content {
