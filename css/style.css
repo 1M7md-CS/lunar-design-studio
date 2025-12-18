@@ -369,7 +369,6 @@ header nav ul li a:hover::after {
   font-weight: 600;
   border-radius: 6px;
   animation: fadeInDown 0.6s ease-out 1.2s both;
-  transition: transform 0.4s;
   box-shadow: var(--box-shadow);
 }
 
@@ -382,11 +381,11 @@ header nav ul li a:hover::after {
 
 .hero-btn a span {
   display: inline-block;
-  transition: transform 0.3s;
+  transition: transform 0.2s ease-in-out;
 }
 
 .hero-btn a:hover span {
-  transform: scale(1.05);
+  transform: scale(1.07);
 }
 
 .services {
@@ -819,6 +818,15 @@ header nav ul li a:hover::after {
 .featured .btn-pricing {
   background-color: var(--clr-main);
   color: var(--clr-white);
+}
+
+.btn-pricing span {
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn-pricing:hover span {
+  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
