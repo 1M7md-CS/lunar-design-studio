@@ -13,6 +13,7 @@
   --clr-section: #151922;
   --clr-accent: #f5deb3;
   --clr-card-bg: hsl(0, 0%, 8%, 0.9);
+  --clr-contact: #f5deb3;
 
   --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   --box-shadow: 0 3px 15px rgba(107, 0, 0, 0.5);
@@ -23,6 +24,7 @@
   --clr-card-bg: rgba(255, 255, 255, 0.9);
   --clr-accent: #404040;
   --clr-dark: #ffffff;
+  --clr-contact: #7a7a7a;
 
   --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   --box-shadow: 0 6px 22px rgba(107, 0, 0, 0.15);
@@ -829,6 +831,174 @@ header nav ul li a:hover::after {
   transform: scale(1.1);
 }
 
+.contact {
+  background-color: var(--clr-section);
+  padding-bottom: 5rem;
+}
+
+.contact-box {
+  display: flex;
+  background: var(--clr-card-bg);
+  border-radius: 35px;
+  overflow: hidden;
+  border: 2px solid hsla(0, 100%, 35%, 0.2);
+  box-shadow: 0 40px 100px rgba(107, 0, 0, 0.2);
+  margin: 0 1rem;
+  transition: border 0.3s;
+}
+
+.contact-box:hover {
+  border: 2px solid var(--clr-main);
+}
+
+.contact-visual {
+  background: linear-gradient(to left, #6b0000, #2a0000);
+  padding: clamp(2rem, 4vw, 3rem);
+  color: var(--clr-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.contact-visual .tag {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  color: var(--clr-contact);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.contact-visual h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+
+.contact-visual h2 span {
+  color: var(--clr-contact);
+}
+
+.contact-methods {
+  margin-top: 3rem;
+}
+
+.method {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.method-icon {
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  color: var(--clr-contact);
+}
+
+.method-text h5 {
+  font-size: 1rem;
+  margin-bottom: 3px;
+}
+
+.method-text p {
+  opacity: 0.8;
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
+}
+
+.contact-form-area {
+  flex: 1.2;
+  padding: clamp(2rem, 4vw, 4rem);
+  background: var(--clr-section);
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.input-group {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group p {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--clr-main);
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.input-group input,
+.input-group textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid hsla(0, 0%, 50%, 0.2);
+  padding: 0.8rem 0;
+  color: var(--clr-contact);
+  font-size: 1rem;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  outline: none;
+  border-bottom-color: var(--clr-main);
+}
+
+.contact-btn {
+  background: var(--clr-main);
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: 0.4s;
+  margin-top: 1rem;
+  max-width: fit-content;
+  cursor: pointer;
+  border: none;
+}
+
+.contact-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(107, 0, 0, 0.2);
+}
+
+.input-group select {
+  width: 100%;
+  padding: 0.8rem 0;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid hsla(0, 0%, 50%, 0.25);
+  color: var(--clr-accent);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.input-group textarea {
+  resize: none;
+}
+.input-group select:focus {
+  outline: none;
+  border-bottom-color: var(--clr-main);
+}
+
+.input-group select option {
+  background-color: var(--clr-section);
+  color: var(--clr-white);
+  font-weight: 500;
+}
+
+#theme-toggle:checked ~ main .input-group select option {
+  color: #000;
+}
+
 @media (max-width: 768px) {
   header nav ul {
     display: none;
@@ -1007,5 +1177,16 @@ header nav ul li a:hover::after {
 
   .pricing-card {
     margin: 0 clamp(1.7rem, 1vw, 2.7rem);
+  }
+}
+
+@media (max-width: 992px) {
+  .contact-box {
+    flex-direction: column;
+  }
+
+  .input-row {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 }
