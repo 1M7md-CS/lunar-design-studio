@@ -17,7 +17,6 @@
   --clr-header-text: #f0f0f0;
   --clr-price: #120a0a;
   --icon-background-gradient: linear-gradient(135deg, #4a080f, #1d1111);
-  --clr-contact-card: hsl(351, 69%, 36%, 0.5);
 
   --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -33,7 +32,6 @@
   --contact-visual-p: #2a1a1c;
   --clr-price: #ffffff;
   --icon-background-gradient: linear-gradient(135deg, #fae8ea, #f5f0f0);
-  --clr-contact-card: hsla(351, 69%, 36%, 0.08);
 
   --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   --box-shadow: 0 6px 15px rgba(155, 28, 46, 0.08);
@@ -839,7 +837,7 @@ header nav ul li a:hover::after {
   background: var(--clr-card-bg);
   border-radius: 35px;
   overflow: hidden;
-  border: 3px solid var(--clr-contact-card);
+  border: 3px solid var(--clr-section);
   box-shadow: var(--box-shadow);
   margin: 0 1rem;
   transition: border 0.4s;
