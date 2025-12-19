@@ -26,11 +26,9 @@
 }
 
 #theme-toggle:checked ~ * {
-  --clr-main: #9b1c2e;
   --clr-section: #fef8f8;
-  --clr-card-bg: #ffffff;
   --clr-text: #2a1a1c;
-  --clr-icon: #c5a059;
+  --clr-card-bg: #ffffff;
   --contact-visual: linear-gradient(135deg, #fef9f0, #fcf3e0);
   --contact-visual-p: #2a1a1c;
   --clr-price: #ffffff;
@@ -101,47 +99,39 @@
   padding-top: 2rem;
 }
 
-@keyframes fadeInUp {
+@keyframes moveUp {
   from {
-    opacity: 0;
     transform: translateY(20px);
+    opacity: 0;
   }
+
   to {
-    opacity: 1;
     transform: translateY(0);
+    opacity: 1;
   }
 }
 
-@keyframes fadeInDown {
+@keyframes moveDown {
   from {
-    opacity: 0;
     transform: translateY(-20px);
+    opacity: 0;
   }
+
   to {
-    opacity: 1;
     transform: translateY(0);
+    opacity: 1;
   }
 }
 
-@keyframes fadeInLeft {
+@keyframes moveLeft {
   from {
+    transform: translateX(-40px);
     opacity: 0;
-    transform: translateX(-100px);
   }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(100px);
-  }
   to {
-    opacity: 1;
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
@@ -155,6 +145,8 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   font-weight: 400;
+  background-color: var(--clr-section);
+  color: var(--clr-text);
 }
 
 .container {
@@ -174,7 +166,7 @@ header .container {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid var(--clr-main);
-  transition: all 0.3s;
+  transition: border-color 0.3s;
 }
 
 .logo {
@@ -186,8 +178,8 @@ header .container {
   cursor: pointer;
   text-decoration: none;
   text-shadow: var(--text-shadow);
-  animation: fadeInUp 0.6s ease-out;
-  transition: all 0.4s;
+  animation: moveUp 0.6s ease-out;
+  transition: color 0.4s;
   color: var(--clr-header-text);
 }
 
@@ -198,7 +190,7 @@ header .container {
   background-color: var(--clr-main);
   position: absolute;
   bottom: 0;
-  transition: all 0.4s;
+  transition: width 0.4s;
 }
 
 .logo:hover::before {
@@ -208,7 +200,6 @@ header .container {
 .logo span {
   color: var(--clr-main);
   font-size: larger;
-  transition: all 0.4s;
 }
 
 header nav {
@@ -224,7 +215,7 @@ header nav ul {
 
 header nav ul li {
   padding: 1rem;
-  animation: fadeInDown 0.6s ease-out both;
+  animation: moveDown 0.6s ease-out both;
 }
 
 header nav ul li a {
@@ -241,20 +232,6 @@ header nav ul li a:hover {
   color: var(--clr-main);
   transform: scale(1.2);
   font-weight: 700;
-}
-
-header nav ul li:first-child a {
-  position: relative;
-}
-
-header nav ul li:first-child a::before {
-  content: "";
-  height: 2px;
-  width: 100%;
-  background-color: var(--clr-main);
-  position: absolute;
-  bottom: -2px;
-  transition: color 0.4s;
 }
 
 header nav ul li a::after {
@@ -278,7 +255,7 @@ header nav ul li a:hover::after {
   height: 1.5rem;
   position: relative;
   cursor: pointer;
-  animation: fadeInDown 0.6s ease-out;
+  animation: moveDown 0.6s ease-out;
 }
 
 .theme-toggle-label i {
@@ -321,7 +298,7 @@ header nav ul li a:hover::after {
   inset: 0;
   background-size: cover;
   background-position: center;
-  transition: all 0.6s;
+  transition: opacity 0.6s;
 }
 
 .hero-dark {
@@ -347,8 +324,9 @@ header nav ul li a:hover::after {
   top: 30%;
   min-width: 55%;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
-  animation: fadeInLeft 0.8s ease-out 0.4s both;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(155, 28, 46, 0.08);
+  animation: moveLeft 0.8s ease-out 0.4s both;
+  box-shadow: var(--box-shadow);
+  transition: box-shadow 0.4s;
 }
 
 .hero .overlay .content {
@@ -365,17 +343,13 @@ header nav ul li a:hover::after {
   font-weight: 900;
   font-size: clamp(1.5rem, 5vw, 1.7rem);
   text-shadow: var(--text-shadow);
-  transition: all 0.4s;
+  transition: color 0.4s;
   letter-spacing: -0.5px;
 }
 
 .hero .overlay .content .text p {
   font-weight: 500;
   font-size: clamp(1rem, 3.5vw, 1.2rem);
-}
-
-.hero .overlay .content .text p a:hover {
-  transform: scale(1.05);
 }
 
 .hero-btn a {
@@ -387,7 +361,7 @@ header nav ul li a:hover::after {
   text-decoration: none;
   font-weight: 600;
   border-radius: 6px;
-  animation: fadeInDown 0.6s ease-out 1.2s both;
+  animation: moveDown 0.6s ease-out 1.2s both;
   box-shadow: var(--button-shadow);
   transition: all 0.4s;
 }
@@ -395,7 +369,7 @@ header nav ul li a:hover::after {
 .hero-btn a:last-child {
   background-color: transparent;
   margin-left: 1rem;
-  animation: fadeInUp 0.6s ease-out 1.4s both;
+  animation: moveUp 0.6s ease-out 1.4s both;
   border: none;
   box-shadow: none;
 }
@@ -496,7 +470,6 @@ header nav ul li a:hover::after {
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
   align-items: center;
-  position: relative;
 }
 
 .benefits-image {
@@ -764,12 +737,10 @@ header nav ul li a:hover::after {
   border-color: var(--clr-main);
   position: relative;
   transform: scale(1.03);
-  box-shadow: var(--box-shadow);
 }
 
 .featured:hover {
   transform: scale(1.03) translateY(-8px);
-  box-shadow: var(--box-shadow);
 }
 
 .popular-badge {
@@ -876,7 +847,6 @@ header nav ul li a:hover::after {
 
 .contact-box:hover {
   border: 3px solid var(--clr-main);
-  box-shadow: var(--box-shadow);
 }
 
 .contact-visual {
@@ -1008,7 +978,6 @@ header nav ul li a:hover::after {
 
 .contact-btn:hover {
   transform: scale(1.05);
-  box-shadow: var(--button-shadow);
 }
 
 .input-group select {
@@ -1027,6 +996,7 @@ header nav ul li a:hover::after {
 .input-group textarea {
   resize: none;
 }
+
 .input-group select:focus {
   outline: none;
   border-bottom-color: var(--clr-main);
@@ -1123,7 +1093,6 @@ footer {
 .footer-links ul li a:hover {
   color: var(--clr-main);
   transform: translateX(5px);
-  font-weight: 600;
 }
 
 .footer-contact p {
@@ -1200,14 +1169,14 @@ footer {
     top: 4.75rem;
     backdrop-filter: blur(10px);
     background-color: var(--clr-card-bg);
-    animation: fadeInDown 0.8s;
+    animation: moveDown 0.8s;
     box-shadow: var(--box-shadow);
   }
 
   header nav ul li {
     width: 100vw;
     text-align: center;
-    animation: fadeInUp 0.6s ease-out both;
+    animation: moveUp 0.6s ease-out both;
     animation-delay: calc(var(--i) * 0.08s);
   }
 
@@ -1247,7 +1216,7 @@ footer {
     position: relative;
     width: 35px;
     height: 20px;
-    animation: fadeInDown 0.8s;
+    animation: moveDown 0.8s;
   }
 
   .mobile-icon-container span {
@@ -1294,25 +1263,22 @@ footer {
   }
 
   .hero-btn a {
-    animation: fadeInUp 0.6s ease-out 1.2s both;
+    animation: moveUp 0.6s ease-out 1.2s both;
   }
 
   .hero-btn a:last-child {
-    animation: fadeInDown 0.6s ease-out 1.8s both;
+    animation: moveDown 0.6s ease-out 1.8s both;
   }
 
   .benefits .container {
     grid-template-columns: 1fr;
     gap: 0;
+    margin-top: -5rem;
   }
 
   .benefits-content {
     max-width: 600px;
     margin: 0 auto;
-  }
-
-  .benefits .container {
-    margin-top: -5rem;
   }
 
   .benefits-image {
