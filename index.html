@@ -342,21 +342,23 @@
                     </div>
 
                     <div class="contact-form-area">
-                        <form>
+                        <form action="https://formspree.io/f/xaqwnkwe" method="POST">
+
                             <div class="input-row">
                                 <div class="input-group">
                                     <p>Name</p>
-                                    <input type="text" placeholder="Your Name" required>
+                                    <input type="text" name="name" placeholder="Your Name" required>
                                 </div>
+
                                 <div class="input-group">
                                     <p>Email</p>
-                                    <input type="email" placeholder="Your Email" required>
+                                    <input type="email" name="email" placeholder="Your Email" required>
                                 </div>
                             </div>
 
                             <div class="input-group">
                                 <p>Service Required</p>
-                                <select>
+                                <select name="service">
                                     <option>UI/UX Design</option>
                                     <option>Brand Identity</option>
                                     <option>Full-Stack Development</option>
@@ -366,7 +368,8 @@
 
                             <div class="input-group">
                                 <p>Message</p>
-                                <textarea placeholder="Briefly describe your vision..." rows="4"></textarea>
+                                <textarea name="message" placeholder="Briefly describe your vision..." rows="4"
+                                    required></textarea>
                             </div>
 
                             <button type="submit" class="contact-btn">
@@ -374,6 +377,7 @@
                             </button>
 
                         </form>
+
                     </div>
                 </div>
             </div>
