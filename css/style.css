@@ -7,27 +7,40 @@
 :root {
   color-scheme: light dark;
 
-  --clr-main: #6b0000;
-  --clr-dark: #0a0a0a;
-  --clr-white: #ffffff;
-  --clr-section: #151922;
-  --clr-accent: #f5deb3;
-  --clr-card-bg: hsl(0, 0%, 8%, 0.9);
-  --clr-contact: #f5deb3;
+  --clr-main: #9b1c2e;
+  --clr-section: #120a0a;
+  --clr-text: #e2d5c5;
+  --clr-card-bg: #1d1111;
+  --clr-icon: #c5a059;
+  --contact-visual: linear-gradient(135deg, #4a080f, #1a0205);
+  --contact-visual-p: #fff0d3;
+  --clr-header-text: #f0f0f0;
+  --clr-price: #fff0d3;
+  --icon-background-gradient: linear-gradient(135deg, #4a080f, #1d1111);
+  --clr-contact-card: hsl(351, 69%, 36%, 0.5);
 
-  --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-  --box-shadow: 0 3px 15px rgba(107, 0, 0, 0.5);
+  --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  --card-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+  --button-shadow: 0 4px 10px rgba(155, 28, 46, 0.25);
 }
 
 #theme-toggle:checked ~ * {
-  --clr-section: #fafafa;
-  --clr-card-bg: rgba(255, 255, 255, 0.9);
-  --clr-accent: #404040;
-  --clr-dark: #ffffff;
-  --clr-contact: #7a7a7a;
+  --clr-main: #01b1ae;
+  --clr-section: #f8fdfd;
+  --clr-card-bg: #fcfcfc;
+  --clr-text: #1a2a2a;
+  --clr-icon: #ff914d;
+  --contact-visual: linear-gradient(135deg, #e6f7f7, #d1f0f0);
+  --contact-visual-p: #1a2a2a;
+  --clr-price: #ff914d;
+  --icon-background-gradient: linear-gradient(135deg, #d7ecea, #e6f6f5);
+  --clr-contact-card: hsla(178, 99%, 35%, 0.08);
 
-  --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  --box-shadow: 0 6px 22px rgba(107, 0, 0, 0.15);
+  --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --box-shadow: 0 6px 15px rgba(1, 177, 174, 0.08);
+  --card-shadow: 0 4px 12px rgba(1, 177, 174, 0.06);
+  --button-shadow: 0 3px 10px rgba(1, 177, 174, 0.15);
 }
 
 .section-header {
@@ -46,6 +59,7 @@
   font-weight: 900;
   text-shadow: var(--text-shadow);
   cursor: default;
+  letter-spacing: -0.5px;
 }
 
 .section-header h2::before {
@@ -71,18 +85,16 @@
   left: 50%;
   width: 5px;
   height: 5px;
-  background-color: var(--clr-section);
+  background-color: var(--clr-main);
   border-radius: 50%;
   border: 5px solid var(--clr-main);
-  box-shadow: 0 0 0 5px var(--clr-section), 0 0 0 7px var(--clr-main);
-  background-color: var(--clr-main);
+  box-shadow: var(--box-shadow);
   transform: translateX(-50%);
 }
 
 .section-header p {
   font-size: clamp(1rem, 2vw, 1.2rem);
-  color: var(--clr-accent);
-  font-size: 1.2rem;
+  color: var(--clr-text);
   max-width: 50%;
   line-height: 1.7;
   font-weight: 500;
@@ -140,8 +152,9 @@ html {
 
 body {
   font-family: "Open Sans", sans-serif;
-  line-height: 1.5;
+  line-height: 1.6;
   overflow-x: hidden;
+  font-weight: 400;
 }
 
 .container {
@@ -158,10 +171,10 @@ header {
 }
 
 header .container {
-  color: var(--clr-white);
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid var(--clr-main);
+  transition: all 0.3s;
 }
 
 .logo {
@@ -171,10 +184,11 @@ header .container {
   letter-spacing: 0.1rem;
   position: relative;
   cursor: pointer;
-  color: var(--clr-white);
   text-decoration: none;
   text-shadow: var(--text-shadow);
   animation: fadeInUp 0.6s ease-out;
+  transition: all 0.4s;
+  color: var(--clr-header-text);
 }
 
 .logo::before {
@@ -184,7 +198,7 @@ header .container {
   background-color: var(--clr-main);
   position: absolute;
   bottom: 0;
-  transition: width 0.3s;
+  transition: all 0.4s;
 }
 
 .logo:hover::before {
@@ -194,6 +208,7 @@ header .container {
 .logo span {
   color: var(--clr-main);
   font-size: larger;
+  transition: all 0.4s;
 }
 
 header nav {
@@ -214,18 +229,18 @@ header nav ul li {
 
 header nav ul li a {
   text-decoration: none;
-  color: var(--clr-white);
-  font-weight: 500;
+  color: var(--clr-header-text);
+  font-weight: 600;
   position: relative;
   text-shadow: var(--text-shadow);
   display: inline-block;
-  transition: all 0.3s;
+  transition: all 0.4s;
 }
 
 header nav ul li a:hover {
   color: var(--clr-main);
   transform: scale(1.2);
-  font-weight: 900;
+  font-weight: 700;
 }
 
 header nav ul li:first-child a {
@@ -239,6 +254,7 @@ header nav ul li:first-child a::before {
   background-color: var(--clr-main);
   position: absolute;
   bottom: -2px;
+  transition: color 0.4s;
 }
 
 header nav ul li a::after {
@@ -250,7 +266,7 @@ header nav ul li a::after {
   height: 2px;
   background: var(--clr-main);
   transform: translateX(-50%);
-  transition: width 0.3s;
+  transition: width 0.4s;
 }
 
 header nav ul li a:hover::after {
@@ -270,7 +286,7 @@ header nav ul li a:hover::after {
   top: 0;
   left: 0;
   font-size: 1.5rem;
-  transition: opacity 0.3s, transform 0.5s;
+  transition: opacity 0.4s, transform 0.5s;
   color: var(--clr-main);
 }
 
@@ -332,6 +348,7 @@ header nav ul li a:hover::after {
   min-width: 55%;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
   animation: fadeInLeft 0.8s ease-out 0.4s both;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(155, 28, 46, 0.08);
 }
 
 .hero .overlay .content {
@@ -347,13 +364,13 @@ header nav ul li a:hover::after {
   color: var(--clr-main);
   font-weight: 900;
   font-size: clamp(1.5rem, 5vw, 1.7rem);
-  transition: color 0.4s;
   text-shadow: var(--text-shadow);
+  transition: all 0.4s;
+  letter-spacing: -0.5px;
 }
 
 .hero .overlay .content .text p {
-  color: var(--clr-white);
-  font-weight: 600;
+  font-weight: 500;
   font-size: clamp(1rem, 3.5vw, 1.2rem);
 }
 
@@ -366,18 +383,20 @@ header nav ul li a:hover::after {
   display: inline-block;
   padding: 8px 20px;
   background: var(--clr-main);
-  color: var(--clr-white);
+  color: var(--clr-header-text);
   text-decoration: none;
   font-weight: 600;
   border-radius: 6px;
   animation: fadeInDown 0.6s ease-out 1.2s both;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--button-shadow);
+  transition: all 0.4s;
 }
 
 .hero-btn a:last-child {
   background-color: transparent;
   margin-left: 1rem;
   animation: fadeInUp 0.6s ease-out 1.4s both;
+  border: none;
   box-shadow: none;
 }
 
@@ -392,7 +411,7 @@ header nav ul li a:hover::after {
 
 .services {
   background-color: var(--clr-section);
-  border-top: 1px solid hsla(0, 100%, 26%, 0.4);
+  border-top: 1px solid var(--clr-main);
   padding-bottom: 5rem;
 }
 
@@ -409,12 +428,12 @@ header nav ul li a:hover::after {
   text-align: center;
   align-items: center;
   background-color: var(--clr-card-bg);
-  color: white;
+  color: var(--clr-text);
   padding: clamp(2.2rem, 4vw, 3rem) clamp(1.9rem, 4vw, 2.5rem);
   border-radius: 20px;
-  border: 2px solid hsl(0, 100%, 26%, 0.3);
-  transition: all 0.3s;
-  box-shadow: var(--box-shadow);
+  border: 2px solid var(--clr-main);
+  transition: all 0.4s;
+  box-shadow: var(--card-shadow);
   height: 100%;
   min-height: 300px;
 }
@@ -422,12 +441,13 @@ header nav ul li a:hover::after {
 .service-card:hover {
   transform: translateY(-8px);
   border-color: var(--clr-main);
+  box-shadow: var(--box-shadow);
 }
 
 .service-card-icon {
   font-size: clamp(2rem, 4vw, 2.4rem);
-  color: var(--clr-white);
-  background: linear-gradient(to bottom, #6b0000, #4a0000);
+  color: var(--clr-icon);
+  background: var(--icon-background-gradient);
   border-radius: 24px;
   width: 90px;
   height: 90px;
@@ -435,7 +455,7 @@ header nav ul li a:hover::after {
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(107, 0, 0, 0.5);
+  box-shadow: var(--card-shadow);
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -456,19 +476,19 @@ header nav ul li a:hover::after {
 }
 
 .service-card p {
-  color: var(--clr-accent);
+  color: var(--clr-text);
   line-height: 1.9;
   font-size: 1rem;
   flex: 1;
   display: flex;
   align-items: flex-start;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .benefits {
-  background-color: var(--clr-dark);
+  background-color: var(--clr-section);
   padding: 5rem 0;
-  border-top: 1px solid hsla(0, 100%, 26%, 0.5);
+  border-top: 1px solid var(--clr-main);
 }
 
 .benefits .container {
@@ -489,7 +509,7 @@ header nav ul li a:hover::after {
 .benefits-image img {
   max-width: clamp(300px, 40vw, 500px);
   border-radius: 22px;
-  box-shadow: 0 20px 60px rgba(107, 0, 0, 0.3);
+  box-shadow: var(--box-shadow);
   border: 3px solid var(--clr-main);
   transition: transform 0.4s;
 }
@@ -531,6 +551,7 @@ header nav ul li a:hover::after {
   position: relative;
   padding-bottom: 1.5rem;
   cursor: default;
+  letter-spacing: -0.5px;
 }
 
 .benefits-content h2::before {
@@ -546,6 +567,7 @@ header nav ul li a:hover::after {
 
 .benefits-content h2::after {
   content: "...";
+  color: var(--clr-main);
 }
 
 .benefits-list {
@@ -564,34 +586,35 @@ header nav ul li a:hover::after {
   background: var(--clr-card-bg);
   border-radius: 12px;
   border-left: 3px solid var(--clr-main);
-  transition: all 0.3s;
-  color: var(--clr-accent);
+  transition: all 0.4s;
+  color: var(--clr-text);
   font-size: clamp(0.9rem, 2vw, 1.1rem);
-  font-weight: 600;
-  box-shadow: var(--box-shadow);
+  font-weight: 500;
+  box-shadow: var(--card-shadow);
 }
 
 .benefits-list li:hover {
   transform: translateX(10px);
   border-left-width: 4px;
+  box-shadow: var(--box-shadow);
 }
 
 .benefits-list li i {
   font-size: clamp(1rem, 2vw, 1.5rem);
-  color: var(--clr-white);
-  background: linear-gradient(to left, var(--clr-main), #4a0000);
+  color: var(--clr-icon);
+  background: var(--icon-background-gradient);
   width: 50px;
   height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(107, 0, 0, 0.4);
+  box-shadow: var(--card-shadow);
 }
 
 .about {
   background-color: var(--clr-section);
-  border-top: 1px solid hsla(0, 100%, 26%, 0.5);
+  border-top: 1px solid var(--clr-main);
   padding-bottom: clamp(3rem, 6vw, 5rem);
 }
 
@@ -609,8 +632,8 @@ header nav ul li a:hover::after {
   background: var(--clr-card-bg);
   border-radius: 25px;
   padding: 1.8rem 1.5rem;
-  box-shadow: var(--box-shadow);
-  border: 2px solid hsla(0, 100%, 26%, 0.25);
+  box-shadow: var(--card-shadow);
+  border: 2px solid var(--clr-main);
   text-align: center;
   transition: all 0.35s;
   margin: 0 1rem;
@@ -619,7 +642,7 @@ header nav ul li a:hover::after {
 .about-card:hover {
   transform: translateY(-4px);
   border-color: var(--clr-main);
-  box-shadow: 0 15px 45px rgba(107, 0, 0, 0.45);
+  box-shadow: var(--box-shadow);
 }
 
 .about-card:hover .icon-wrapper {
@@ -644,14 +667,16 @@ header nav ul li a:hover::after {
 
 .card-title {
   font-size: 1.6rem;
-  font-weight: 900;
+  font-weight: 800;
   color: var(--clr-main);
   margin-bottom: clamp(0.75rem, 2vw, 1rem);
   text-shadow: var(--text-shadow);
+  letter-spacing: -0.5px;
 }
 
 .about-story .card-text strong {
   color: var(--clr-main);
+  font-weight: 700;
 }
 
 .icon-wrapper {
@@ -659,24 +684,24 @@ header nav ul li a:hover::after {
   height: clamp(70px, 8vw, 90px);
   margin: 0 auto 1rem;
   border-radius: 50%;
-  background: linear-gradient(to top, #6b0000, #4a0000);
+  background: var(--icon-background-gradient);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(107, 0, 0, 0.4);
-  transition: transform 0.3s;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.4s;
 }
 
 .icon-wrapper i {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
-  color: var(--clr-white);
+  color: var(--clr-icon);
 }
 
 .card-text {
   font-size: 1rem;
   line-height: 1.8;
-  color: var(--clr-accent);
-  font-weight: 600;
+  color: var(--clr-text);
+  font-weight: 500;
 }
 
 .about-stats {
@@ -701,13 +726,13 @@ header nav ul li a:hover::after {
 .stat-text {
   font-size: clamp(0.8rem, 2vw, 1rem);
   text-transform: uppercase;
-  color: var(--clr-accent);
+  color: var(--clr-text);
   font-weight: 600;
 }
 
 .pricing {
-  background-color: var(--clr-dark);
-  border-top: 1px solid hsla(0, 100%, 26%, 0.5);
+  background-color: var(--clr-section);
+  border-top: 1px solid var(--clr-main);
   padding-bottom: clamp(3rem, 6vw, 5rem);
 }
 
@@ -720,28 +745,31 @@ header nav ul li a:hover::after {
 
 .pricing-card {
   background: var(--clr-card-bg);
-  border: 2px solid hsla(0, 100%, 26%, 0.2);
+  border: 2px solid var(--clr-main);
   border-radius: 24px;
   padding: clamp(1.5rem, 4vw, 2.5rem);
   text-align: center;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--box-shadow);
-  transition: transform 0.3s ease;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.4s ease;
 }
 
 .pricing-card:hover {
   transform: translateY(-8px);
+  box-shadow: var(--box-shadow);
 }
 
 .featured {
   border-color: var(--clr-main);
   position: relative;
   transform: scale(1.03);
+  box-shadow: var(--box-shadow);
 }
 
 .featured:hover {
   transform: scale(1.03) translateY(-8px);
+  box-shadow: var(--box-shadow);
 }
 
 .popular-badge {
@@ -750,12 +778,13 @@ header nav ul li a:hover::after {
   left: 50%;
   transform: translate(-50%, -50%);
   background: var(--clr-main);
-  color: var(--clr-white);
+  color: var(--clr-price);
   border-radius: 20px;
   font-weight: 800;
   letter-spacing: 1px;
   font-size: clamp(0.65rem, 1.2vw, 0.8rem);
   padding: 0.35em 1.2em;
+  box-shadow: var(--button-shadow);
 }
 
 .plan-type {
@@ -763,6 +792,7 @@ header nav ul li a:hover::after {
   font-weight: 800;
   color: var(--clr-main);
   margin-bottom: 0.75rem;
+  letter-spacing: -0.5px;
 }
 
 .price {
@@ -775,8 +805,8 @@ header nav ul li a:hover::after {
 
 .price span {
   font-size: clamp(0.75rem, 1.4vw, 0.95rem);
-  color: var(--clr-accent);
-  font-weight: 600;
+  color: var(--clr-text);
+  font-weight: 500;
 }
 
 .plan-features {
@@ -792,9 +822,9 @@ header nav ul li a:hover::after {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 0;
-  border-bottom: 1px solid hsl(0, 0%, 25%);
-  color: var(--clr-accent);
-  font-weight: 600;
+  border-bottom: 1px solid var(--clr-main);
+  color: var(--clr-text);
+  font-weight: 500;
 }
 
 .plan-features li i {
@@ -804,17 +834,18 @@ header nav ul li a:hover::after {
 .btn-pricing {
   text-decoration: none;
   border: 2px solid var(--clr-main);
-  color: var(--clr-accent);
+  color: var(--clr-text);
   font-weight: 700;
   border-radius: 8px;
   font-size: clamp(0.85rem, 1.4vw, 0.95rem);
   padding: 0.7em 1.6em;
   transition: all 0.25s ease;
+  box-shadow: var(--button-shadow);
 }
 
 .featured .btn-pricing {
   background-color: var(--clr-main);
-  color: var(--clr-white);
+  color: var(--clr-card-bg);
 }
 
 .btn-pricing span {
@@ -829,7 +860,7 @@ header nav ul li a:hover::after {
 .contact {
   background-color: var(--clr-section);
   padding-bottom: 5rem;
-  border-top: 1px solid hsla(0, 100%, 26%, 0.5);
+  border-top: 1px solid var(--clr-main);
 }
 
 .contact-box {
@@ -837,20 +868,21 @@ header nav ul li a:hover::after {
   background: var(--clr-card-bg);
   border-radius: 35px;
   overflow: hidden;
-  border: 2px solid hsla(0, 100%, 35%, 0.2);
-  box-shadow: 0 40px 100px rgba(107, 0, 0, 0.2);
+  border: 3px solid var(--clr-contact-card);
+  box-shadow: var(--box-shadow);
   margin: 0 1rem;
-  transition: border 0.3s;
+  transition: border 0.4s;
 }
 
 .contact-box:hover {
-  border: 2px solid var(--clr-main);
+  border: 3px solid var(--clr-main);
+  box-shadow: var(--box-shadow);
 }
 
 .contact-visual {
-  background: linear-gradient(to left, #6b0000, #2a0000);
+  background: var(--contact-visual);
   padding: clamp(2rem, 4vw, 3rem);
-  color: var(--clr-white);
+  color: var(--clr-text);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -861,19 +893,28 @@ header nav ul li a:hover::after {
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 0.8rem;
-  color: var(--clr-contact);
+  color: var(--contact-visual-p);
   margin-bottom: 1rem;
   display: block;
+  font-weight: 600;
 }
 
 .contact-visual h2 {
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.1;
   margin-bottom: 2rem;
+  color: var(--contact-visual-p);
+  font-weight: 900;
+  text-shadow: var(--text-shadow);
 }
 
 .contact-visual h2 span {
-  color: var(--clr-contact);
+  color: var(--clr-icon);
+}
+
+.contact-visual p {
+  color: var(--contact-visual-p);
+  font-weight: 500;
 }
 
 .contact-methods {
@@ -889,23 +930,26 @@ header nav ul li a:hover::after {
 
 .method-icon {
   font-size: clamp(1.3rem, 2vw, 1.7rem);
-  color: var(--clr-contact);
+  color: var(--clr-icon);
 }
 
 .method-text h5 {
   font-size: 1rem;
   margin-bottom: 3px;
+  color: var(--contact-visual-p);
+  font-weight: 700;
 }
 
 .method-text p {
-  opacity: 0.8;
+  color: var(--contact-visual-p);
   font-size: clamp(0.7rem, 2vw, 0.9rem);
+  font-weight: 500;
 }
 
 .contact-form-area {
   flex: 1.2;
   padding: clamp(2rem, 4vw, 4rem);
-  background: var(--clr-section);
+  background: var(--clr-card-bg);
 }
 
 .input-row {
@@ -933,12 +977,12 @@ header nav ul li a:hover::after {
 .input-group textarea {
   background: transparent;
   border: none;
-  border-bottom: 2px solid hsla(0, 0%, 50%, 0.2);
+  border-bottom: 2px solid var(--clr-main);
   padding: 0.8rem 0;
-  color: var(--clr-contact);
+  color: var(--clr-text);
   font-size: 1rem;
-  transition: 0.3s;
-  font-weight: 600;
+  transition: 0.4s;
+  font-weight: 500;
 }
 
 .input-group input:focus,
@@ -949,6 +993,7 @@ header nav ul li a:hover::after {
 
 .contact-btn {
   background: var(--clr-main);
+  color: var(--clr-section);
   padding: 1.2rem 2.5rem;
   border-radius: 50px;
   font-weight: 800;
@@ -958,11 +1003,12 @@ header nav ul li a:hover::after {
   max-width: fit-content;
   cursor: pointer;
   border: none;
+  box-shadow: var(--button-shadow);
 }
 
 .contact-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(107, 0, 0, 0.2);
+  box-shadow: var(--button-shadow);
 }
 
 .input-group select {
@@ -970,11 +1016,12 @@ header nav ul li a:hover::after {
   padding: 0.8rem 0;
   background: transparent;
   border: none;
-  border-bottom: 2px solid hsla(0, 0%, 50%, 0.25);
-  color: var(--clr-accent);
+  border-bottom: 2px solid var(--clr-main);
+  color: var(--clr-text);
   font-size: 1rem;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.4s;
+  font-weight: 500;
 }
 
 .input-group textarea {
@@ -986,18 +1033,14 @@ header nav ul li a:hover::after {
 }
 
 .input-group select option {
-  background-color: var(--clr-section);
-  color: var(--clr-white);
+  background-color: var(--clr-card-bg);
+  color: var(--clr-text);
   font-weight: 500;
 }
 
-#theme-toggle:checked ~ main .input-group select option {
-  color: #000;
-}
-
 footer {
-  background-color: var(--clr-dark);
-  border-top: 1px solid hsla(0, 100%, 26%, 0.5);
+  background-color: var(--clr-section);
+  border-top: 1px solid var(--clr-main);
   padding: 4rem 0 1.5rem;
 }
 
@@ -1006,7 +1049,7 @@ footer {
   grid-template-columns: 2fr 1fr 1fr 1.5fr;
   gap: 3rem;
   padding-bottom: 3rem;
-  border-bottom: 1px solid hsla(0, 100%, 26%, 0.3);
+  border-bottom: 1px solid var(--clr-main);
 }
 
 .footer-brand {
@@ -1023,7 +1066,7 @@ footer {
 }
 
 .footer-brand p {
-  color: var(--clr-accent);
+  color: var(--clr-text);
   line-height: 1.7;
   font-weight: 500;
 }
@@ -1038,19 +1081,19 @@ footer {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(to bottom, #6b0000, #4a0000);
-  color: var(--clr-white);
+  background: var(--icon-background-gradient);
+  color: var(--clr-icon);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s;
-  box-shadow: 0 4px 15px rgba(107, 0, 0, 0.3);
+  transition: all 0.4s;
+  box-shadow: var(--card-shadow);
   text-decoration: none;
 }
 
 .social-links a:hover {
   transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 6px 20px rgba(107, 0, 0, 0.5);
+  box-shadow: var(--box-shadow);
 }
 
 .footer-links h4,
@@ -1070,21 +1113,21 @@ footer {
 }
 
 .footer-links ul li a {
-  color: var(--clr-accent);
+  color: var(--clr-text);
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s;
+  transition: all 0.4s;
   display: inline-block;
 }
 
 .footer-links ul li a:hover {
   color: var(--clr-main);
   transform: translateX(5px);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .footer-contact p {
-  color: var(--clr-accent);
+  color: var(--clr-text);
   margin-bottom: 1rem;
   font-weight: 500;
   display: flex;
@@ -1101,7 +1144,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding-top: 2rem;
-  color: var(--clr-accent);
+  color: var(--clr-text);
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -1156,7 +1199,9 @@ footer {
     right: 0;
     top: 4.75rem;
     backdrop-filter: blur(10px);
+    background-color: var(--clr-card-bg);
     animation: fadeInDown 0.8s;
+    box-shadow: var(--box-shadow);
   }
 
   header nav ul li {
@@ -1210,7 +1255,7 @@ footer {
     width: 100%;
     height: 2px;
     background: var(--clr-main);
-    transition: transform 0.3s, opacity 0.2s;
+    transition: transform 0.4s, opacity 0.2s;
   }
 
   .mobile-icon-container span:nth-child(1) {
@@ -1278,11 +1323,6 @@ footer {
     min-width: 50%;
     min-height: 50%;
     margin: clamp(-3rem, -10vw, -5rem) 0;
-    box-shadow: 0 10px 20px rgba(107, 0, 0, 0.3);
-  }
-
-  .benefits-list li i {
-    box-shadow: 0 2px 8px rgba(107, 0, 0, 0.4);
   }
 
   .benefits-content {
