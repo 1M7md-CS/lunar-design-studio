@@ -209,6 +209,7 @@ header nav {
 header nav ul {
   list-style: none;
   display: flex;
+  transition: background-color 0.4s;
 }
 
 header nav ul li {
