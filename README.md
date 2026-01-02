@@ -2,6 +2,10 @@
 
 A modern, responsive design studio website showcasing creative services and professional web design solutions.
 
+## Live Demo
+
+[https://1m7md-cs.github.io/lunar-design-studio/](https://1m7md-cs.github.io/lunar-design-studio/)
+
 ## 🌟 Features
 
 - **Responsive Design**: Optimized for all devices and screen sizes
